@@ -111,7 +111,7 @@ exports.resetPassword = async (req, res, next) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
-      role: updatedUser.role,
+      // role: updatedUser.role,
       updatedAt: updatedUser.updatedAt,
       createdAt: updatedUser.createdAt
     });
