@@ -1,0 +1,702 @@
+{
+	"info": {
+		"_postman_id": "7e480a50-657a-4a9f-b789-89a981a70c53",
+		"name": "torterra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GET users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET user info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/user/current/info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"current",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\" : \"Jhon Doe\",\r\n\t\"email\" : \"jhon@doe.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST reset password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authorization}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\" : \"admin@admin.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/password/reset",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"password",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\" : \"admin@admin.com\",\r\n\t\"password\" : \"admin\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST update password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"oldPassword\" : \"admin2\",\r\n\t\"newPassword\" : \"admin\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/password/update",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"password",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authorization}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"password\" : \"admin\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/602fa0888e891fbb64d04563",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"602fa0888e891fbb64d04563"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE  user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/5d68e80a4192f442302dfb68",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"5d68e80a4192f442302dfb68"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dossiers",
+			"item": [
+				{
+					"name": "GET dossier",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/dossier/?page=1&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dossier",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dossier By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/dossier/602fe42a72c0181c946e7f38?fields=_id,title,slug,image",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dossier",
+								"602fe42a72c0181c946e7f38"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "_id,title,slug,image"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET dossier by slug",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/dossier/slug/dossier-demo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dossier",
+								"slug",
+								"dossier-demo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET dossier posts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/dossier/slug/dossier-update/posts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dossier",
+								"slug",
+								"dossier-update",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST dossier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"title\" : \"Dossier demo 2\",\r\n\t\"description\" : \"dossier Description 1\",\r\n\t\"image\": \"https://dummyimage.com/600x400/000/fff\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/dossier",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dossier"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH  dossier",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Dossier update\",\r\n\t\"description\": \"update-description\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/dossier/602fe42a72c0181c946e7f38",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dossier",
+								"602fe42a72c0181c946e7f38"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE  dossier",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/dossier/602fe4dda37e1c1d349a71e7",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dossier",
+								"602fe4dda37e1c1d349a71e7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "GET post",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/post/?page=1&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/post/602fe8db8eb81d2d784359b1?fields=_id,title,slug,images,featureImage",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"602fe8db8eb81d2d784359b1"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "_id,title,slug,images,featureImage"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET post by slug",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/post/slug/post-demo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"slug",
+								"post-demo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST dossier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"title\" : \"Post demo 2\",\r\n\t\"description\" : \"Post Description 2\",\r\n    \"featureImage\" : \"https://dummyimage.com/600x400/000/fff\",\r\n    \"images\": [\r\n        { \"url\": \"https://dummyimage.com/600x400/000/fff\" },\r\n        { \"url\": \"https://dummyimage.com/600x400/000/fff\" }\r\n    ],\r\n    \"date\": \"2021-02-19\",\r\n    \"author\": \"Author name\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/post",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH  post",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"dossier\": \"602fe42a72c0181c946e7f38\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/post/602fe993060af925088b3117",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"602fe993060af925088b3117"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE  post",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/post/602fe8db8eb81d2d784359b1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"602fe8db8eb81d2d784359b1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
