@@ -1,0 +1,105 @@
+<div class="dashboard-page-container py-3" id="users-edit-container">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10">
+        <div class="dashboard-top-content mb-3">
+          <button class="btn btn-link" (click)="openBackConfirmation(modalTemplateBackConfirmation)"><i class="fas fa-chevron-left"></i> Back</button>
+        </div>
+        <div *ngIf="user && !userNotFound" class="row">
+          <div class="col-12">
+            <div class="edit-user-form">
+              <form novalidate
+                (ngSubmit)="updateUser()"
+                [formGroup]="userForm"
+                class="user-form">
+
+                <div class="form-group">
+                  <label for="name">Nome <span *ngIf="this.userForm.get('name').value !== this.user.name">Alterado</span></label>
+                  <input class="form-control" id="name" formControlName="name" type="text" required
+                        [ngClass]="{'is-invalid' : !userForm.controls['name'].valid && userForm.controls['name'].touched }">
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Email</label>
+                  <input class="form-control" id="email" formControlName="email" type="text">
+                </div>
+
+                <div class="form-group">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" disabled name="role" id="user" value="0" [checked]="user.role === USER_ROLES_DEFINITION.User" >
+                    <label class="form-check-label" for="user">
+                      Utilizador
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" disabled name="role" id="admin" value="1" [checked]="user.role === USER_ROLES_DEFINITION.Admin">
+                    <label class="form-check-label" for="admin">
+                      Administrador
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline" *ngIf="user.role === USER_ROLES_DEFINITION.Root">
+                    <input class="form-check-input" type="radio" disabled name="role" id="root" value="2" [checked]="true">
+                    <label class="form-check-label" for="admin">
+                      Root
+                    </label>
+                  </div>
+                </div>
+
+                <hr>
+
+                <!-- <div class="form-group">
+                  <label for="name">Atual Password</label>
+                  <input class="form-control" id="password" formControlName="password" type="password">
+                </div> -->
+                <div class="form-group">
+                  <label for="name">Nova Password <small>(min: 5 chars)</small></label>
+                  <input class="form-control" id="password" formControlName="password" type="password"
+                  [ngClass]="{'is-invalid' : (!userForm.controls['password'].valid && userForm.controls['password'].touched) || !passwordReadyToSubmit }">
+                </div>
+                <div class="form-group">
+                  <label for="name">Repetir Nova Password <small>(min: 5 chars)</small></label>
+                  <input class="form-control" id="confirmNewPassword" formControlName="confirmNewPassword" type="password"
+                  [ngClass]="{'is-invalid' : (!userForm.controls['confirmNewPassword'].valid && userForm.controls['confirmNewPassword'].touched) || !passwordReadyToSubmit }">
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn -btn"
+                  [disabled]="!userValuesChanges || !userForm.valid || !passwordReadyToSubmit">Guardar</button>
+                <!-- <span
+                  class="btn ml-3 -btn-danger pointer" (click)="openDeleteModal(modalTemplateDelete)">Delete</span> -->
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalTemplateBackConfirmation>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalBackConfirmation.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>Descartar todas as alterações?</p>
+    <button type="button" class="btn -btn-secondary mr-2" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn -btn" (click)="decline()" >Não</button>
+  </div>
+</ng-template>
+
+<!--<ng-template #modalTemplateDelete>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalDeleteConfirmation.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>Quer apagar o utlizador <span>{{user.name}}</span>?</p>
+    <button type="button" class="btn -btn-secondary mr-2" (click)="confirmDeleteModal()">Sim</button>
+    <button type="button" class="btn -btn" (click)="declineDeleteModal()">Não</button>
+  </div>
+</ng-template> -->

@@ -1,0 +1,20 @@
+.dashboard-page-container {
+  .dashboard-top-content {
+    // @media (max-width:991px) and (min-width:768px) {
+    //   padding-left: 120px;
+    // }
+    .add-item {
+
+    }
+    .info-items {
+
+    }
+  }
+  .dashboard-no-content {
+    text-align: center;
+    p {
+      color: $color-gray;
+      font-weight: 300;
+    }
+  }
+}

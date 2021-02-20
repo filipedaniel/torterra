@@ -1,0 +1,23 @@
+#page-not-found-container {
+  .page-not-found-content {
+    height: 100vh;
+    min-height: 300px;
+    h2 {
+      color: $color-darker;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 26px;
+      margin-bottom: 30px;
+      margin-top: 20px;
+    }
+    h1 {
+      font-size: 50px;
+      font-weight: 300;
+      margin-bottom: 60px;
+    }
+    a {
+      padding: 10px 0px;
+      min-width: 150px;
+    }
+  }
+}

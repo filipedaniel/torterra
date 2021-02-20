@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~ngx-bootstrap/datepicker/bs-datepicker.css";
+
+// datepicker/bs-datepicker.css
+// Import toastr
+@import '~ngx-toastr/toastr-bs4-alert';
+// import ng-select style
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.bubble.css";
+@import "~quill/dist/quill.snow.css";
+
+// Import General base styles
+@import "assets/scss/style.scss";

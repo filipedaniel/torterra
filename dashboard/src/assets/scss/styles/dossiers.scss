@@ -1,0 +1,32 @@
+.dashboard-page-container {
+  &#dossier-container {
+    .dashboard-list-content {
+      @media (max-width: 767px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+    }
+  }
+  &#dossiers-create-container,
+  &#dossier-details-container {
+    .dashboard-top-content {
+      button {
+        color: $color-gray-darker;
+        padding-left: 0;
+      }
+    }
+    .dossier-form {
+      textarea {
+        height: 200px;
+        resize: none;
+      }
+    }
+  }
+  &#dossier-details-container {
+
+  }
+
+
+}
+

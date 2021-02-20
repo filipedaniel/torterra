@@ -1,0 +1,72 @@
+<div class="dashboard-page-container py-3" id="dossier-details-container">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10">
+        <div class="dashboard-top-content mb-3">
+          <button class="btn btn-link" (click)="openBackConfirmation(modalTemplateBackConfirmation)"><i class="fas fa-chevron-left"></i> Voltar</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="dossier && !dossierNotFound" class="row justify-content-center">
+      <div class="col-12 col-md-10">
+        <div class="detail-dossier-form">
+          <form
+            novalidate
+            (ngSubmit)="updateDossier()"
+            [formGroup]="dossierForm"
+            class="dossier-form">
+            <div class="form-group">
+              <label for="title">Título <span *ngIf="this.dossierForm.get('title').value !== this.dossier.title">Alterado</span></label>
+              <input class="form-control" id="title" formControlName="title" type="text" required
+                    [ngClass]="{'is-invalid' : !dossierForm.controls['title'].valid && dossierForm.controls['title'].touched }">
+            </div>
+            <div class="form-group">
+              <label for="description">Descrição <span *ngIf="this.dossierForm.get('description').value !== this.dossier.description">Alterado</span></label>
+              <textarea class="form-control" id="description"  formControlName="description" required
+                    [ngClass]="{'is-invalid' : !dossierForm.controls['description'].valid && dossierForm.controls['description'].touched }"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="image">Imagem <span *ngIf="this.dossierForm.get('image').value !== this.dossier.image">Alterado</span></label>
+              <div class="feature-image-preview d-flex">
+                  <div class="img-preview d-flex justify-content-center align-items-center">
+                    <img
+                      *ngIf="this.dossierForm.get('image').value === this.dossier.image"
+                      src="{{dossier.image}}"
+                      alt="{{dossier.slug}}-feature-image" class="img-fluid">
+                    <img
+                      *ngIf="this.dossierForm.get('image').value !== this.dossier.image && this.dossierForm.get('image').value != ''"
+                      src="{{this.dossierForm.get('image').value}}"
+                      alt="{{dossier.slug}}-feature-image" class="img-fluid">
+                  </div>
+                  <input class="form-control" id="image"  formControlName="image" required
+                  [ngClass]="{'is-invalid' : !dossierForm.controls['image'].valid && dossierForm.controls['image'].touched }">
+                </div>
+
+              </div>
+            <button
+              type="submit"
+              class="btn -btn"
+              [disabled]="!dossierValueChanges || !dossierForm.valid">Guardar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="dossierNotFound" class="row">
+      <div class="col-12 dashboard-no-content">
+        <p class="mt-5 mb-5 text-center">Projeto não foi encontrado!</p>
+      </div>
+  </div>
+</div>
+
+<ng-template #modalTemplateBackConfirmation>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalBackConfirmation.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>Descartar todas as alterações?</p>
+    <button type="button" class="btn -btn-secondary mr-2" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn -btn" (click)="decline()" >Não</button>
+  </div>
+</ng-template>

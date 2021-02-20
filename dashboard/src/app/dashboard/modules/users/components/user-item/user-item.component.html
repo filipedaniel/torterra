@@ -1,0 +1,53 @@
+<div @fadeIn class="card-user flex-column" [ngClass]="{'current-user': currentUser._id === user._id}">
+  <h3 class="name">{{user.name}}</h3>
+  <p class="email">{{user.email}}</p>
+  <div *ngIf="currentUser.role === USER_ROLES_DEFINITION.Root" class="role-options">
+    <span *ngIf="user.role === USER_ROLES_DEFINITION.User" class="admin" (click)="openAdminModal(modalTemplateMakeAdmin)">Tornar Administrador</span>
+    <span *ngIf="user.role === USER_ROLES_DEFINITION.Admin" class="admin" (click)="openUserModal(modalTemplateMakeUser)">Tornar Utilizador</span>
+    <span class="delete" (click)="openDeleteModal(modalTemplateDelete)">Apagar</span>
+  </div>
+  <div *ngIf="currentUser.role === USER_ROLES_DEFINITION.Admin && currentUser._id !== user._id" class="role-options">
+    <span *ngIf="user.role === USER_ROLES_DEFINITION.User" class="admin" (click)="openAdminModal(modalTemplateMakeAdmin)">Tornar Administrador</span>
+    <span *ngIf="user.role === USER_ROLES_DEFINITION.Admin" class="admin" (click)="openUserModal(modalTemplateMakeUser)">Tornar Utilizador</span>
+  </div>
+</div>
+
+
+<ng-template #modalTemplateMakeAdmin>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalAdminConfirmation.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>Tornar utilizador <span>{{user.name}}</span> administrador?</p>
+    <button type="button" class="btn -btn-secondary mr-2" (click)="confirmAdminModal()" >Sim</button>
+    <button type="button" class="btn -btn" (click)="declineAdminModal()" >Não</button>
+  </div>
+</ng-template>
+
+<ng-template #modalTemplateMakeUser>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalUserConfirmation.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>Remover permissões de administrador ao utilizador <span>{{user.name}}</span>?</p>
+    <button type="button" class="btn -btn-secondary mr-2" (click)="confirmUserModal()" >Sim</button>
+    <button type="button" class="btn -btn" (click)="declineUserModal()" >Não</button>
+  </div>
+</ng-template>
+
+<ng-template #modalTemplateDelete>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalDeleteConfirmation.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>Quer apagar o utlizador <span>{{user.name}}</span>?</p>
+    <button type="button" class="btn -btn-secondary mr-2" (click)="confirmDeleteModal()">Sim</button>
+    <button type="button" class="btn -btn" (click)="declineDeleteModal()">Não</button>
+  </div>
+</ng-template>

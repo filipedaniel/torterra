@@ -1,0 +1,36 @@
+.dashboard-page-container {
+  &#post-container {
+    .dashboard-list-content {
+      @media (max-width: 767px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+    }
+  }
+  &#post-create-container,
+  &#post-details-container {
+    .dashboard-top-content {
+      button {
+        color: $color-gray-darker;
+        padding-left: 0;
+      }
+    }
+    .post-form {
+      textarea {
+        height: 200px;
+        resize: none;
+      }
+    }
+    .form-group-editor {
+      .ql-toolbar {
+        background: #fff;
+      }
+      .ql-container {
+        background: #fff;
+        height: 250px;
+      }
+    }
+  }
+}
+
