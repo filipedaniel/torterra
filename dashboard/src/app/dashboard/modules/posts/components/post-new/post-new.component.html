@@ -1,0 +1,131 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="dashboard-page-container py-3" id="post-create-container">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10">
+        <div class="dashboard-top-content mb-3">
+          <button class="btn btn-link" (click)="openBackConfirmation(modalTemplateBackConfirmation)"><i class="fas fa-chevron-left"></i> Voltar</button>
+        </div>
+      </div>
+    </div>
+    <!-- -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10">
+        <div class="class-form">
+          <form
+            novalidate
+            (ngSubmit)="savePost()"
+            [formGroup]="postForm"
+            class="post-form">
+
+            <div class="form-group">
+              <label for="title">Título</label>
+              <input class="form-control" id="title" formControlName="title" type="text" required
+                    [ngClass]="{'is-invalid' : !postForm.controls['title'].valid && postForm.controls['title'].touched }">
+            </div>
+            <div class="form-group">
+              <label for="description">Descrição</label>
+              <textarea class="form-control" id="description"  formControlName="description" required
+                    [ngClass]="{'is-invalid' : !postForm.controls['description'].valid && postForm.controls['description'].touched }"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="image">Imagem de capa</label>
+              <div class="feature-image-preview d-flex">
+                <div class="img-preview d-flex justify-content-center align-items-center">
+                  <img
+                    *ngIf="featureImageChange && postForm.controls['featureImage'].value != ''"
+                    src="{{postForm.controls['featureImage'].value}}"
+                    alt="feature-image" class="img-fluid">
+                </div>
+                <input class="form-control" id="featureImage"  formControlName="featureImage" required
+                  [ngClass]="{'is-invalid' : !postForm.controls['featureImage'].valid && postForm.controls['featureImage'].touched }">
+              </div>
+            </div>
+            <div class="form-group form-group-images">
+              <label for="images">Images <small>({{imagesFormGroup.controls.length}})</small></label>
+              <div formArrayName="images" class="images-container" *ngIf="imagesFormGroup.controls.length > 0">
+                <div *ngFor="let img of imagesFormGroup.controls; let i = index;">
+                  <div [formGroupName]="i" class="image-group d-flex align-items-center">
+                    <div class="img-preview">
+                      <img *ngIf="img.value.url !== ''" src="{{img.value.url}}" alt="image-{{i}}" class="img-fluid">
+                    </div>
+                    <input class="form-control" formControlName="url" type="text" required />
+                    <span (click)="removeImage(i)"> <i class="fa fa-times"></i> </span>
+                  </div>
+                </div>
+              </div>
+              <div class="add-image-container">
+                <span class="add-image" (click)="addImageToList()">Nova imagem</span>
+              </div>
+            </div>
+            <div class="form-group form-group-editor">
+              <label for="content">Conteúdo</label>
+              <quill-editor
+                id="content"
+                placeholder="Insira texto aqui..."
+                formControlName="content">
+              </quill-editor>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-8">
+                  <div class="form-group">
+                    <label for="author">Autor</label>
+                    <input class="form-control" id="title" formControlName="author" type="text" required
+                          [ngClass]="{'is-invalid' : !postForm.controls['author'].valid && postForm.controls['author'].touched }">
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class="form-group">
+                    <label for="date">Data</label>
+                    <input type="text"
+                      id="date"
+                      class="form-control"
+                      formControlName="date"
+                      autocomplete="off"
+                      bsDatepicker
+                      [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', containerClass: 'theme-default' }"
+                      [ngClass]="{'is-invalid' : !postForm.controls['date'].valid && postForm.controls['date'].touched }">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="dossier">Dossier</label>
+              <ng-select [items]="dossiers" bindLabel="title" bindValue="_id" formControlName="dossier">
+                <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                  <div class="select-card">
+                    <div class="select-card-body">
+                      <h5 class="select-card-title" [ngOptionHighlight]="search">{{item.title}}</h5>
+                      <p class="select-card-text">{{item.description}}</p>
+                    </div>
+                  </div>
+                </ng-template>
+              </ng-select>
+            </div>
+
+            <button
+              type="submit"
+              class="btn -btn"
+              [disabled]="!postForm.valid">Guardar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalTemplateBackConfirmation>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalBackConfirmation.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>Descartar todos os valores?</p>
+    <button type="button" class="btn -btn-secondary mr-2" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn -btn" (click)="decline()" >Não</button>
+  </div>
+</ng-template>
+

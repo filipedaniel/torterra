@@ -1,0 +1,55 @@
+
+<div id="sidebar-container">
+  <div class="sidebar-header-container">
+    <div class="logo">
+      <a routerLink="/dashboard">
+        Torterra
+      </a>
+    </div>
+    <div class="nav-trigger" (click)="onToggleSidebar()">
+      <i class="fas" [ngClass]="{'fa-times' : expandSidebar, 'fa-bars' : !expandSidebar}"></i>
+    </div>
+  </div>
+
+  <div class="sidebar-container" [@flyInOut] [ngClass]="{'open' : expandSidebar}">
+    <nav class="sidebar-items">
+      <ul>
+        <li>
+          <a routerLink="/dashboard/posts" routerLinkActive="active" (click)="onToggleSidebarFalse()">
+            <i class="fa fa-calendar-alt"></i>
+            <span>Posts</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/dossiers" routerLinkActive="active" (click)="onToggleSidebarFalse()">
+            <i class="fa fa-project-diagram"></i>
+            <span>Dossiers</span>
+          </a>
+        </li>
+        <li class="item-line">
+          <hr>
+        </li>
+        <li *ngIf="currentUser && (currentUser.role === USER_ROLES_DEFINITION.Admin || currentUser.role === USER_ROLES_DEFINITION.Root)">
+          <a routerLink="/dashboard/users" routerLinkActive="active" (click)="onToggleSidebarFalse()">
+            <i class="fa fa-user"></i>
+            <span>Utilizadores</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="sidebar-user text-center">
+      <div class="user-logout" (click)="logout()">
+        <span>Sair</span>
+        <i class="fas fa-sign-out-alt"></i>
+      </div>
+      <div class="user-name">
+        <a routerLink="/dashboard/users/user/edit">
+          <span>{{authService.currentUser?.name}}</span>
+          <i class="fa fa-cog"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay-sidebar" [ngClass]="{'open' : expandSidebar}" (click)="onToggleSidebarFalse()"></div>
+</div>

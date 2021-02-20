@@ -1,0 +1,26 @@
+<div @fadeIn class="card card-dossier mb-3">
+  <div class="card-image">
+    <img src="{{ dossier.image !== '' ? dossier.image : 'assets/images/placeholder-card.png' }}" class="img-fluid" alt="{{dossier.slug}}">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><a routerLink="/dashboard/dossiers/{{ dossier.slug }}">{{dossier.title}}</a></h5>
+    <p class="card-text">{{dossier.description}}</p>
+    <div class="card-links">
+      <a routerLink="/dashboard/dossiers/{{ dossier.slug }}" class="card-link">Ver mais</a>
+      <div class="card-link-delete" (click)="openConfirmationModel(modalTemplateDeleteConfirmation)">Apagar</div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalTemplateDeleteConfirmation>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalDeleteConfirmation.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>Quer apagar o projeto: <br> <span>{{ dossier.title }}</span> </p>
+    <button type="button" class="btn -btn-secondary mr-2" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn -btn" (click)="decline()" >Não</button>
+  </div>
+</ng-template>

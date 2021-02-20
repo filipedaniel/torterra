@@ -1,0 +1,32 @@
+.modal {
+  .modal-content {
+    border: 0;
+    border-radius: 0;
+  }
+  .modal-header {
+    border: none;
+    padding-bottom: 10px;
+  }
+  .modal-body {
+    padding-top: 0px;
+    .modal-content {
+      border-radius: 0;
+    }
+  }
+  .modal-delete,
+  .modal-admin-confirmation,
+  .modal-user-confirmation {
+    p {
+      margin-bottom: 30px;
+      span {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        color: $color-gray;
+        font-style: italic;
+      }
+    }
+  }
+  // -----
+
+
+}

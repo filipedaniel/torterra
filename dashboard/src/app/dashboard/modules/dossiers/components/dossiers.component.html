@@ -1,0 +1,65 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="dashboard-page-container py-3" id="dossier-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="dashboard-top-content d-flex justify-content-between align-items-center mb-3">
+          <div class="add-item">
+            <a routerLink="/dashboard/dossiers/new" class="btn -btn">Novo Projeto</a>
+          </div>
+          <div class="info-items">
+            <span class="small" *ngIf="actualPage && totalDocs > 0">
+              {{actualPage === 1 ? 1 : (actualPage-1)*docsLimit+1}}
+              -
+              {{ actualPage*docsLimit > totalDocs ? totalDocs : actualPage*docsLimit }}
+              de
+              {{ totalDocs }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="search-form-container">
+          <div class="form-group mp-input mp-input--icon d-flex align-items-center position-relative">
+            <i class="fas fa-search"></i>
+            <input id="search-input" (keyup)="search($event)" class=form-control>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="dossiers?.length > 0" class="row">
+      <div class="col-12">
+        <div class="dashboard-list-content">
+          <app-dossier-item
+            *ngFor="let dossier of dossiers"
+            [dossier]="dossier"
+            (dossierDeleted)="deleteDossier($event)"></app-dossier-item>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="dossiers?.length > 0" class="row">
+      <div class="col-12">
+        <div class="pagination-content my-3 d-flex justify-content-center">
+          <pagination
+            [totalItems]="totalDocs"
+            [maxSize]="5"
+            [itemsPerPage]="docsLimit"
+            (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;"
+            nextText="&rsaquo;">
+          </pagination>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf=" dossiers?.length == 0">
+      <div class="row">
+        <div class="col-12 dashboard-no-content">
+          <p class="mt-5 mb-5 text-center">Não existem dossiers!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
