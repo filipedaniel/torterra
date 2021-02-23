@@ -1,0 +1,59 @@
+<div id="post-page-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div id="post-container">
+          <% if (page.post) {
+              const post = page.post; %>
+            <div class="post-top-info">
+              <% if (post.featureImage && post.featureImage != "") { %>
+              <div class="image-container">
+                <img src="<%= post.featureImage %>" alt="<%= post.slug %>-feature-image" class="img-fluid">
+              </div>
+              <% } %>
+              <div class="dossier"><%= post.dossier.title %></div>
+              <h1><%= post.title %></h1>
+              <p><%= post.description %></p>
+              <% 
+                var d = new Date(post.date);
+                var date = d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();    
+              %>
+
+              <span class="date"><%= date %></span>
+              <div class="post-social mt-3">
+                <% include ../partials/social %>
+              </div>
+              <hr class="line-group">
+            </div>
+            <div class="post-content-container">
+              <% if (post.images.length > 0 ) { %>
+                <div id="post-slider">
+                  <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                      <% for (let i = 0; i < post.images.length; i++) {
+                        const img = post.images[i]; %>
+                        <div class="swiper-slide">
+                          <img src="<%= img.url %>" alt="image<%= i %>" class="img-fluid">
+                        </div>
+                      <% } %>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+                </div>
+              <% } %>
+              <div class="post-content">
+                <%- post.content %>
+              </div>
+              <div class="post-author">
+                <hr class="line-group">
+                Autor: <span class="author"><%= post.author %></span>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

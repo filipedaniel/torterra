@@ -1,0 +1,65 @@
+<div id="projects-page-container">
+  <section id="title-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Projects</h1>
+          <% if (page.blog) { %>
+            <p><%= page.blog.description %></p>
+          <% } %>
+          <hr class="line-group">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -->
+  <section id="projects-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <% 
+          var posts = page.posts;
+          if (posts && posts.docs.length > 0) { %>
+            <div class="row" id="blog-list">
+              <% for (var i = 0; i < posts.docs.length; i++) {
+                let p = posts.docs[i]; %>
+                <div class="col-12 col-md-6 col-xl-4">
+                  <div class="card card-post">
+                    <a href="/projects/<%= p.slug %>">
+                      <div class="post-image">
+                        <img src="<%= p.featureImage %>" alt="<%= p.slug %>-featureimage" class="img-fluid">
+                      </div>
+                      <div class="post-content">
+                        <h3><%= p.title %></h3>
+                        <p><%= p.description %></p>
+                        <div class="post-content-metadata">
+                          <span class="author"><%= p.author %></span>
+                          &nbsp;&bull;&nbsp;
+                          <% 
+                            var d = new Date(p.date);
+                            var date = d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();    
+                          %>
+                          <span class="date"><%= date %></span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+            <%- include('../partials/pagination', {  pages: page.posts.pages, page: page.posts.page, url : '/projects', query: "" }); %>
+          <% } else { %>
+            <div class="row">
+              <div class="col-12 text-center">
+                <p class="no-data">Nenhum post!</p>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- -->
+
+</div>

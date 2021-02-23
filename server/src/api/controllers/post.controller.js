@@ -107,12 +107,12 @@ exports.postPost = async (req, res, next) => {
 
     if (dossierId && mongoose.Types.ObjectId.isValid(dossierId)) {
       const checkDossier = await Dossier.exists({ _id: dossierId });
-      if (!checkDossier)
-      dossierId = null;
+      if (!checkDossier) {
+        dossierId = null;
+      }
     } else {
       dossierId = null;
     }
-
 
     const post = new Post({
       _id: mongoose.Types.ObjectId(),

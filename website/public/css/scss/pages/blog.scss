@@ -1,0 +1,31 @@
+#blog-page-container,
+#projects-page-container {
+  min-height: calc(100vh - 109px);
+  #title-container {
+    padding: 60px 0px 50px;
+    h1 {
+      font-size: 34px;
+      font-weight: normal;
+      margin-bottom: 25px;
+      color: $color;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+  hr {
+    margin-top: 50px;
+    margin-left: 0;
+  }
+  #blog-container,
+  #projects-container {
+    #blog-list,
+    #blog-list {
+      .card {
+        margin-bottom: 30px;
+      }
+    }
+
+  }
+
+}

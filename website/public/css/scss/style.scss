@@ -1,0 +1,21 @@
+@import './vendor/bootstrap/bootstrap.scss';
+@import './vendor//swiper.min.scss';
+
+@import './common/variables.scss';
+@import './common/fonts.scss';
+
+* {
+  font-family: $font-family;
+  color: $text-color;
+}
+body {
+  padding-top: 61px;
+}
+
+@import './common/common.scss';
+@import './common/header.scss';
+@import './common/footer.scss';
+@import './pages/home.scss';
+@import './pages/contact.scss';
+@import './pages/blog.scss';
+@import './pages/post.scss';

@@ -1,0 +1,185 @@
+.card-post {
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0;
+  border: 1px solid  $text-color-lighter;
+  background: #ffffff;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  @media (min-width: 992px) {
+    &:hover {
+      box-shadow: $color-lighter 4px 4px 0px 0px;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  .post-image {
+    position: relative;
+    height: 200px;
+    //width: 300px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .post-content {
+    position: relative;
+    padding: 20px 25px 18px;
+    height: 175px;
+    .post-dossier {
+      position: relative;
+      font-size: 12px;
+      font-weight: 500;
+      color: $color-secondary;
+      display: block;
+      height: 18px;
+      margin-bottom: 5px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 500;
+      color: $text-color;
+      color: #222;
+      margin: 0 0 15px 0;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    p {
+      overflow: hidden;
+      position: relative;
+      line-height: 1.3em;
+      font-weight: 300;
+      font-size: 14px;
+      margin-bottom: 15px;
+      height: 3.9em;
+      color: $text-color-lighter;
+    }
+    .post-content-metadata {
+      font-size: 12px;
+      font-weight: 500;
+      color: $color-secondary;
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      span {
+        color: $color-secondary;
+        display: block;
+        &.author {
+          max-width: 60%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .author {
+        margin-right: 5px;
+      }
+      .date {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.-btn {
+  color:$text-color;
+  border: 1px solid $text-color;
+  background-color: transparent;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0;
+  text-align: center;
+  transition: all 0.2s ease;
+  &:hover {
+    color: $text-color;
+    // border: 1px solid $color-lighter;
+    box-shadow: $color-lighter 4px 4px 0px 0px;
+  }
+}
+
+.swiper-pagination {
+  .swiper-pagination-bullet {
+    background: $color-darker;
+    &.swiper-pagination-bullet-active {
+      background: $color-lighter;
+    }
+  }
+}
+
+.swiper-button-next, 
+.swiper-button-prev {
+  &::after {
+    font-size: 30px;
+    color: $color-darker;
+  }
+}
+
+
+h1.section-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 500;
+  margin-bottom: 25px;
+  color: $color;
+}
+
+.line-group {
+  border-top: 1px solid $text-color;
+  max-width: 100px;
+  display: block;
+  margin: 0px auto;
+}
+
+#pagination-content {
+  nav {
+    ul {
+      margin-top: 15px;
+      margin-bottom: 0px;
+      border-radius: 0;
+      li.page-item {
+        a {
+          color: $color-gray;
+          border: 0;
+          background: #fff;
+          span {
+            color: $color-gray;
+          }
+        }
+        &.active {
+          a {
+            color: $color-lighter;
+            font-weight: 700;
+            span {
+              color: $color-lighter;
+            }
+          }
+        }
+        &:hover {
+          a {
+            color: $color-lighter;
+            span {
+              color: $color-lighter;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.no-data {
+  color: $color-gray-darker;
+}
