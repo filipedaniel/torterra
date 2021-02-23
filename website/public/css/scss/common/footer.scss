@@ -1,0 +1,16 @@
+#footer-conteiner {
+  padding: 15px 0px;
+  background: $text-color;
+  .copy-container {
+    p {
+      margin: 0px;
+      font-size: 12px;
+      color: #fff;
+      small {
+        margin: 0;
+        font-size: 10px;
+        color: #fff;
+      }
+    }
+  }
+}

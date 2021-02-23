@@ -1,0 +1,51 @@
+#contact-page-container {
+  padding: 60px 0px;
+  min-height: calc(100vh - 109px);
+  #contact-content {
+    h1 {
+      font-size: 34px;
+      font-weight: normal;
+      margin-bottom: 25px;
+      color: $color;
+    }
+    p {
+      font-size: 14px;
+    }
+    .contacts-content {
+      .social, .email {
+        margin-top: 30px;
+        h4 {
+          font-weight: 700;
+          font-size: 14px;
+          display: block;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+          i {
+            font-size: 30px;
+            margin-right: 10px;
+            color: $color-gray;
+            &:hover {
+              color: $color;
+            }
+          }
+        }
+      }
+      .email {
+        a {
+          &:hover {
+            text-decoration: underline;
+            color:  $color;
+          }
+        }
+      }
+    }
+    hr {
+      margin-left: 0;
+      margin-bottom: 40px;
+      margin-top: 40px;
+    }
+  }
+
+}

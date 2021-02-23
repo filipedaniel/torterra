@@ -1,0 +1,151 @@
+
+<% if (process.env.ENVIREMENT === "development") { %>
+
+<h1><%= message %></h1>
+<h2><%= error.status %></h2>
+<pre><%= error.stack %></pre>
+
+<% } else { %>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page not Found!</title>
+  
+    <style>
+      :root {
+        --main-font-family: 'Helvetica Neue';
+        --title-span-highlight: #443c28;
+        --button-background: #005133;
+        --button-background-hover: #005133;
+        --button-background-active: #005133;
+        --button-border: #005133;
+        --button-color: #FFFFFF;
+      }
+      
+      html, body, p, hr, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
+      h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal; }
+      html { box-sizing: border-box; }
+      *, *:before, *:after { box-sizing: inherit; }
+      
+      html {
+        background-color: white;
+        font-size: 16px;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        min-width: 300px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        text-rendering: optimizeLegibility;
+        -webkit-text-size-adjust: 100%;
+           -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+      }
+      
+      body {
+        margin: 0;
+        font-family: var(--main-font-family) , "Helvetica Neue", Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+        background-color: #fff;
+      }
+  
+      .page-wrapper {
+        height: 100vh;
+        min-height: 500px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+  
+      .page-wrapper h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #005133;
+        margin-bottom: 20px;
+      }
+      .page-wrapper h2 {
+        text-align: center;
+        color: #1a1f23;
+        font-weight: 400;
+        line-height: 1.125;
+        font-size: 2em;
+        margin-bottom: 1.5em;
+      }
+  
+      .page-wrapper span {
+        color: var(--title-span-highlight);
+        font-weight: 700;
+      }
+  
+      .page-wrapper img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 3em;
+      }
+  
+      .page-wrapper a {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        border: 1px solid transparent;
+        border-radius: 0px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        font-size: 1rem;
+        height: 2.5em;
+        line-height: 2.5em;
+        position: relative;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: var(--button-background);
+        border-color: var(--button-border);
+        color: var(--button-color);
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        text-align: center;
+        white-space: nowrap;
+      }
+  
+      .page-wrapper a:hover {
+        background-color: var(--button-background-hover);
+        border-color: var(--button-background-hover); 
+      }
+  
+      .page-wrapper a:active {
+        background-color: var(--button-background-active);
+        border-color: var(--button-background-active); 
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <h2><span>Oops!</span> Page not Found!</h2>
+      <a href="/">Back</a>
+    </div>
+  </body>
+  </html>
+
+<% } %>

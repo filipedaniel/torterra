@@ -1,0 +1,112 @@
+#post-page-container {
+  padding: 120px 0px;
+  @media (min-width: 992px) {
+    padding: 60px 0px;
+  }
+  #post-container {
+    .post-top-info {
+      .image-container {
+        height: 100%;
+        position: relative;
+        height: 400px;
+        @media (min-width: 992px) {
+          height: 450px;
+        }
+        margin-bottom: 30px;
+        // background: $background;
+        img {
+          margin-bottom: 30px;
+          object-fit: contain;
+          max-height: 100%;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      h1 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 25px;
+        color: $color;
+        line-height: 1.4;
+        @media (min-with: 992px) {
+          font-size: 30px;
+        }
+      }
+      p {
+        font-size: 14px;
+      }
+      hr {
+        margin-left: 0;
+        margin-bottom: 40px;
+        margin-top: 40px;
+        border-color: $color-gray-lighter;
+        max-width: 100%;
+      }
+      .dossier {
+        color: $color-secondary;
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+      .date {
+        color: $color-secondary;
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    .post-content-container {
+      #post-slider {
+        background: $background;
+        .swiper-container {
+          .swiper-slide {
+            //background: #fff;
+            background: $background;
+            height: 400px;
+            img {
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+
+      }
+      .post-content {
+        margin-top: 30px;
+        img {
+          max-width: 100%;
+          height: auto;
+          margin-bottom: 30px;
+          max-height: 500px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+      }
+      .post-author {
+        font-weight: 700;
+        color: $color-gray-darker;
+        hr {
+          border-color: $color-gray-lighter;
+          margin-left: 0;
+          margin-bottom: 15px;
+          margin-top: 30px;
+        }
+        span {
+          color: $color-gray-darker;
+          display: block;
+          // font-size: 14px;
+          font-weight: 500;
+          // margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

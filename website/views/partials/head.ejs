@@ -1,0 +1,17 @@
+<!-- views/partials/head.ejs -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/images/favicon/favicon.ico"> 
+<title><%= page.metadata.title %></title>
+<meta name="description" content="<%= page.metadata.description %>">
+
+<% if (page.render == 'post') { %>
+<meta property="og:url" content="<%= page.metadata.url %>" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="<%= page.metadata.title %>" />
+<meta property="og:description" content="<%= page.metadata.description %>" />
+<meta property="og:image" content="<%= page.metadata.image %>" />
+<% } %>
+
+<link rel='stylesheet' href='/css/dist/style.min.css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">

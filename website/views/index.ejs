@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+    <% include partials/header %>
+    
+    <%- include('pages/' + page.render) %> %> 
+
+    <% include partials/footer %>
+    
+    <% if (process.env.ENVIREMENT === "development") { %>
+      <script src="/js/vendor/jquery-3.4.1.min.js"></script>
+      <script src="/js/vendor/bootstrap.min.js"></script>
+      <script src="/js/vendor/swiper.min.js"></script>
+      <script src="/js/scripts.js"></script>
+    <% } else { %>
+      <script src="/js/dist/script.min.js"></script>
+    <% } %>
+
+  </body>
+</html>

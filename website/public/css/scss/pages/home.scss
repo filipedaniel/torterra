@@ -1,0 +1,112 @@
+#home-page-container {
+  min-height: calc(100vh - 109px);
+  #slider-container {
+    .swiper-container {
+      .swiper-slide {
+        background: #fff;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 500px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        @media (min-width: 1500px) {
+          height: 600px;
+        }
+      }
+    }
+  }
+  #about-container {
+      padding: 80px 0px;
+      @media (min-width: 768px) {
+        padding: 100px 0px;
+      }
+      .about-image {
+        img {
+          border-radius: 50%;
+          box-shadow: $color-lighter 4px 4px 0px 0px;
+        }
+      }
+      .about-description {
+        p {
+          font-size: 16px;
+          font-weight: 100;
+        }
+      }
+  }
+  #content-container {
+    margin-top: 40px;
+    padding: 40px 0px 60px 0px;
+    @media (min-width: 768px) {
+      padding: 50px 0px 60px 0px;
+    }
+    .content-cards {
+      display: flex;
+      flex-wrap: wrap;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      width: 100%;
+      margin: 0rem;
+      .content-card {
+        min-width: 480px;
+        margin: 1rem;
+        padding: 1.5rem;
+        border-radius: 0px;
+        border: 1px solid $text-color-lighter;
+        background: #ffffff;
+        box-shadow: $color-lighter 4px 4px 0px 0px;
+        transition: all 0.2s;
+        &:hover {
+          box-shadow: #00000026 0px 8px 17px;
+          transform: scale(1.02);
+          outline-width: 0;
+        }
+        text-decoration: none;
+        color: $text-color;
+
+        h4 {
+          padding: 0;
+          margin: 2rem 0 1.45rem;
+          color: inherit;
+          text-rendering: optimizeLegibility;
+          line-height: 1.1;
+        }
+        p {
+          padding: 0;
+          margin: 0 0 1.45rem;
+        } 
+      }
+    }
+  }
+  #contacts-container {
+    background: $background;
+    text-align: center;
+    padding: 80px 0px;
+    h1 {
+      font-weight: 600;
+      font-size: 22px;
+      margin-top: 0;
+      margin-bottom: 40px;
+      @media (min-width: 768px) {
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 26px;
+      }
+      @media (min-width: 992px) {
+        font-size: 32px;
+      }
+    }
+    a {
+      // font-weight: ;
+      // font-size: 16px;
+    }
+  }
+}

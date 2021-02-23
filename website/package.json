@@ -1,0 +1,35 @@
+{
+  "name": "torterra-website",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start:dev": "nodemon ./bin/www",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "helmet": "^3.21.2",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "nodemailer": "^6.3.1",
+    "nodemon": "^1.19.4",
+    "query-string": "^6.9.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
+    "node-sass": "^4.13.0"
+  }
+}
