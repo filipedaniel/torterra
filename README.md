@@ -1,8 +1,7 @@
 # Torterra
 
-Torterra, an full stack web application
+Torterra, an full stack, MEAN web application
 
-Current status: **Development**
 
 <br>
 
