@@ -20,17 +20,18 @@ It consists of an website, in this case, for public access and an dashboard for 
 
 **Some screenshots:**
 
+Website Home page:
+
 ![website-home](/assets/website-home.png)
 
-Website Home page.
+Website projects page:
 
 ![website-projects](/assets/website-projects.png)
 
-Website projects page.
+Bashboard posts:
 
 ![dashboard-posts](/assets/dashboard-posts.png)
 
-Bashboard posts.
 
 
 <br>
