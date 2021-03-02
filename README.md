@@ -24,11 +24,11 @@ It consists of an website, in this case, for public access and an dashboard for 
 
 Website Home page.
 
-![website-projects](/assets/website-projects.PNG)
+![website-projects](/assets/website-projects.png)
 
 Website projects page.
 
-![dashboard-posts](/assets/dashboard-posts.PNG)
+![dashboard-posts](/assets/dashboard-posts.png)
 
 Bashboard posts.
 
