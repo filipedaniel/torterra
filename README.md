@@ -18,6 +18,21 @@ It consists on a database where all the data is stored and a server API to conne
 
 It consists of an website, in this case, for public access and an dashboard for admin purpose, where it possible to add all the content to the website and add users that can access the dashboard.
 
+**Some screenshots:**
+
+![website-home](/assets/website-home.png)
+
+Website Home page.
+
+![website-projects](/assets/website-projects.PNG)
+
+Website projects page.
+
+![dashboard-posts](/assets/dashboard-posts.PNG)
+
+Bashboard posts.
+
+
 <br>
 
 ## Why I build Torterra?
